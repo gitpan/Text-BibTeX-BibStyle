@@ -10,7 +10,7 @@ WriteMakefile(
     PL_FILES        => {},
     PREREQ_PM 	    => { 'Text::BibTeX' => 0,
 			 'HTML::Entities' => 0,
-			 'Text::ASCIIMathML' => 0,
+			 'Text::ASCIIMathML' => 0.7,
 		     },
     dist            => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean           => { FILES => 'Text-BibTeX-BibStyle-*' },

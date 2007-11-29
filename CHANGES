@@ -1,4 +1,7 @@
 CHANGES for vcp - Version CoPy
 
+0.02 Thu Nov 29 16:50:46 CST 2007
+   - Updated expects for Text::ASCIIMathML version 0.7
+
 0.01 Thu Nov 29 15:55:24 CST 2007
    - Initial public release.

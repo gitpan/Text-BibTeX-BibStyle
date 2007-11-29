@@ -6,7 +6,7 @@ Text::BibTeX::BibStyle - Format Text::BibTeX::Entry items using .bst
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 DESCRIPTION
 
