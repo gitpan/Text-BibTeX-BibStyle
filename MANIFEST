@@ -23,7 +23,6 @@ t/latex/abbrv.bbl
 t/latex/abbrv.blg
 t/latex/alpha.bbl
 t/latex/alpha.blg
-t/latex/ieeetr.aux
 t/latex/ieeetr.bbl
 t/latex/ieeetr.blg
 t/latex/Makefile
@@ -33,6 +32,7 @@ t/latex/unsrt.bbl
 t/latex/unsrt.blg
 t/rst/abbrv.rst
 t/rst/alpha.rst
+t/rst/etal.rst
 t/rst/ieeetr.rst
 t/rst/plain.rst
 t/rst/unsrt.rst

@@ -40,19 +40,19 @@ D.~E. Knuth, {\em Fundamental Algorithms}, section 1.2.
 
 \bibitem{book-minimal}
 D.~E. Knuth, {\em Seminumerical Algorithms}.
-\newblock Addison-Wesley, {\noopsort{1973c}}1981.
+\newblock Addison-Wesley, {\noopsort{1981a}}1981.
 
 \bibitem{book-full}
 D.~E. Knuth, {\em Seminumerical Algorithms}, vol.~2 of {\em The Art of Computer
   Programming}.
 \newblock Reading, Massachusetts: Addison-Wesley, second~ed., 10~Jan.
-  {\noopsort{1973c}}1981.
+  {\noopsort{1981b}}1981.
 \newblock This is a full BOOK entry.
 
 \bibitem{book-crossref}
 D.~E. Knuth, {\em Seminumerical Algorithms}.
 \newblock Vol.~2 of {\em The Art of Computer Programming\/} \cite{whole-set},
-  second~ed., {\noopsort{1973c}}1981.
+  second~ed., {\noopsort{1981c}}1981.
 \newblock This is a cross-referencing BOOK entry.
 
 \bibitem{whole-set}

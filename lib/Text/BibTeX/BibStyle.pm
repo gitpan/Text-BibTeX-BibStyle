@@ -6,7 +6,7 @@ Text::BibTeX::BibStyle - Format Text::BibTeX::Entry items using .bst
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 DESCRIPTION
 
@@ -185,7 +185,11 @@ $RST  = {
 	    my $key = pop @args;
 	    $bst->{rst}{Bib_count}++;
 	    my $label = $args[0] || $bst->{rst}{Bib_count};
-	    ($bst->{rst}{Cites}{$key} = $label) =~ s/[{}]//g; # Remove braces
+	    if ($args[0]) {
+		my $bst2 = Text::BibTeX::BibStyle->new;
+		$label = $bst2->convert_format($label, $RST);
+	    }
+	    $bst->{rst}{Cites}{$key} = $label;
 	    return ".. [$key] ";
 	}
 	elsif ($cmd eq 'mbox') {
@@ -202,6 +206,9 @@ $RST  = {
     },
     math => sub {
 	my ($bst, $latex, $math) = @_;
+	# Latex sometimes starts with ^ or _ for super/subscript
+	$math =~ s/^([_^])/{::}$1/;
+	$math =~ s/([{}])/\\$1/g;
 	$math =~ s/\\/\\\\/g;
 	return "\\ :mathml:`$math`\\ ";
     },
@@ -209,8 +216,9 @@ $RST  = {
 	my ($bst, $text) = @_;
 
 	# Fix the indentations
-	$text =~ s/^(?!\.\.|\*\*)[ ]*(.+)/   $1/mg;
-	$text =~ s/\\\\/\\/g;
+	$text =~ s/^[ ]*$//mg;
+	$text =~ s/^(?!\A|\.\.|\*\*)[ ]*(.+)/   $1/mg;
+	$text =~ s/\\([\\{}])/$1/g;
 	foreach my $code (sort keys %{$bst->{rst}{unicode}}) {
 	    $text .= sprintf ".. |unicode(%x)| unicode:: U+%x\n", $code, $code;
 	}
@@ -2026,9 +2034,10 @@ sub _substitute_newcommand {
     1 while $str =~ s/\\newcommand\{ \\([a-z]+) \} \[ (\d+) \](\{.*)/do {
 	my ($cmd, $args, $next, $def) = ($1, $2, $3);
 	($def, $next) = _remove_matched_brace($next);
-	$def =~ s!^\{(.*)\}$!sub { qq($1) }!s;
-	$def =~ s!\#(\d+)!\$_[@{[$1-1]}]!g;
+	$def =~ s!^\{(.*)\}$!sub { qq(\Q$1\E) }!s;
+	$def =~ s!\\\#(\d+)!\$_[@{[$1-1]}]!g;
 	my $sub = eval("$def");
+	die "Internal error: $@" if $@;
 	$command{$cmd} = { args => $args, def => $def, code => $sub };
 	$next;
     }/sexi;

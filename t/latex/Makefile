@@ -4,7 +4,7 @@ BBLs = $(BSTs:=.bbl)
 default: $(BBLs)
 
 %.bbl:	%.aux
-	env BSTINPUTS=../bibstyle bibtex $*
+	env BSTINPUTS=../bibstyle BIBINPUTS=../bibs bibtex $*
 
 %.aux:
 	@echo '\citation{*}'         >  $@

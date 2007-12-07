@@ -6,7 +6,7 @@ Warning--empty author in whole-journal
 Warning--empty title in whole-journal
 You've used 36 entries,
             2118 wiz_defined-function locations,
-            648 strings with 7195 characters,
+            650 strings with 7239 characters,
 and the built_in function-call counts, 9183 in all, are:
 = -- 937
 > -- 304

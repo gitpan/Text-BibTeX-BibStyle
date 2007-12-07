@@ -8,10 +8,10 @@ use Test::More;
 use FindBin;
 chdir $FindBin::RealBin;
 
-my @bsts = <latex/*.bbl>;
-s!latex/(.*)\.bbl!$1! foreach @bsts;
+my @bbls = <latex/*.bbl>;
+s!latex/(.*)\.bbl!$1! foreach @bbls;
 
-my @tests = grep -f "html/$_.html", @bsts;
+my @tests = grep -f "html/$_.html", @bbls;
 
 @tests = @ARGV if @ARGV;
 

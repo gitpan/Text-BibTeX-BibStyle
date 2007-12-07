@@ -15,7 +15,7 @@ my @tests = grep -f "latex/$_.bbl", @bsts;
 
 @tests = @ARGV if @ARGV;
 
-plan tests => 0+@tests;
+plan tests => 0+@tests unless $ENV{OUTPUT};
 
 my %options;
 $options{debug} = 1 if $ENV{DEBUG};
@@ -42,6 +42,10 @@ foreach my $test (@tests) {
     my $exp_warns = `grep Warning latex/$test.blg`;
     $exp_warns    =~ s/^\# //gm;
     my $output    = $bibstyle->get_output($LATEX);
+    if ($ENV{OUTPUT}) {
+	print $output;
+	exit;
+    }
     my $exp_outs  = `cat latex/$test.bbl`;
     my @stack     = map $bibstyle->_format_token($_), @{$bibstyle->{stack}};
     is ("$warns\n$output", "$exp_warns\n$exp_outs", $test);

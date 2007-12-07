@@ -54,21 +54,21 @@ Donald~E. Knuth.
 \bibitem{book-minimal}
 Donald~E. Knuth.
 \newblock {\em Seminumerical Algorithms}.
-\newblock Addison-Wesley, {\noopsort{1973c}}1981.
+\newblock Addison-Wesley, {\noopsort{1981a}}1981.
 
 \bibitem{book-full}
 Donald~E. Knuth.
 \newblock {\em Seminumerical Algorithms}, volume~2 of {\em The Art of Computer
   Programming}.
 \newblock Addison-Wesley, Reading, Massachusetts, second edition, 10~January
-  {\noopsort{1973c}}1981.
+  {\noopsort{1981b}}1981.
 \newblock This is a full BOOK entry.
 
 \bibitem{book-crossref}
 Donald~E. Knuth.
 \newblock {\em Seminumerical Algorithms}.
 \newblock Volume~2 of {\em The Art of Computer Programming\/} \cite{whole-set},
-  second edition, {\noopsort{1973c}}1981.
+  second edition, {\noopsort{1981c}}1981.
 \newblock This is a cross-referencing BOOK entry.
 
 \bibitem{booklet-minimal}
